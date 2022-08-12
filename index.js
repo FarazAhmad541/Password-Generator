@@ -7,11 +7,28 @@ const withoutNum = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
 
 let isNumbers = false;
 let isChar = false;
+let passwordLengthEl = document.getElementById('range')
 
-let passwordLength = 20
+// let passwordLength = 15
 
-let password = document.createElement('div')                    // Creates a div element
-    password.classList.add("password-el")                      // Adds a class to the div element
+
+
+
+
+function generatePasswords(){
+    passwordLength = passwordLengthEl.value
+    if (passwordLength > 8 && passwordLength<30){
+        let password = passwordGenerator2()
+        let passwordEl = `<div class = "password-el" id = "password-el" onclick = "handleCopyText()">
+                        ${password}
+                        </div>`                       
+        document.getElementById('passwords').innerHTML = passwordEl     // Appends the newly created element to the parrent element
+    }else{
+        alert('Password length should be 8 to 30 characters')
+    }
+    
+        
+}
 
 function toggleSwitch(){
     let checkNumber = document.getElementById('check-number')
@@ -31,24 +48,6 @@ function toggleSwitch(){
 }
 
 
-function generatePasswords(){
-    
-    password.textContent = passwordGenerator2()                      // Generates the content to go into div element 
-    document.getElementById('passwords').appendChild(password);     // Appends the newly created element to the parrent element
-    
-}
-
-// //  Generates a random 15 letter Password
-// function passwordGenerator(){
-//     let password = ''
-//     for (i = 0; i<15; i++){
-//         let randomIndex =  Math.floor(Math.random()*characters.length)
-//         let randomCharacter = characters[randomIndex]
-//         password += randomCharacter
-//     }
-//     return password
-// }
-
 function passwordGenerator2(){
     let password = ''
     if (isNumbers === false && isChar === false){
@@ -58,26 +57,34 @@ function passwordGenerator2(){
             password += randomCharacter
         }
 
-    }else if(isNumbers === true && isChar === false){
-        for (i = 0; i<passwordLength; i++){
-            let randomIndex =  Math.floor(Math.random()*withoutChar.length)
-            let randomCharacter = withoutChar[randomIndex]
-            password += randomCharacter
+        }else if(isNumbers === true && isChar === false){
+            for (i = 0; i<passwordLength; i++){
+                let randomIndex =  Math.floor(Math.random()*withoutChar.length)
+                let randomCharacter = withoutChar[randomIndex]
+                password += randomCharacter
+            }
+        }else if(isNumbers === false && isChar === true){
+            for (i = 0; i<passwordLength; i++){
+                let randomIndex =  Math.floor(Math.random()*withoutNum.length)
+                let randomCharacter = withoutNum[randomIndex]
+                password += randomCharacter
+            }
+        }else if(isNumbers === true && isChar === true){
+            for (i = 0; i<passwordLength; i++){
+                let randomIndex =  Math.floor(Math.random()*characters.length)
+                let randomCharacter = characters[randomIndex]
+                password += randomCharacter  
+            }
+        
         }
-    }else if(isNumbers === false && isChar === true){
-        for (i = 0; i<passwordLength; i++){
-            let randomIndex =  Math.floor(Math.random()*withoutNum.length)
-            let randomCharacter = withoutNum[randomIndex]
-            password += randomCharacter
-        }
-    }else if(isNumbers === true && isChar === true){
-        for (i = 0; i<passwordLength; i++){
-            let randomIndex =  Math.floor(Math.random()*characters.length)
-            let randomCharacter = characters[randomIndex]
-            password += randomCharacter  
-    }
-     
-    }
     return password
 }
+
+function handleCopyText() {
+    const cb = navigator.clipboard;
+    const passwordText = document.querySelector('.password-el');
+    cb.writeText(passwordText.innerText).then(() => alert('Password is copied to clipboard'));
+  }
+
+
 

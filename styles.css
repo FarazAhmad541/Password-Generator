@@ -1,0 +1,212 @@
+
+
+body {
+  background: #1F2937;
+  font-family: 'Karla', sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+.main {
+  width: 70%;
+  height: 550px;
+  left: 62px;
+  top: 64px;
+  background: #1F2937;
+  margin: auto;
+  margin-top: 5%;
+}
+
+h1 {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 40px;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0%;
+}
+
+.green-text {
+  color: #4ADF86;
+}
+
+.text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+  margin-top: 5px;
+  color: #D5D4D8;
+}
+
+.selection-text {
+  font-family: "Inter";
+  font-style: bold;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+  margin: 2.5rem 3rem 2rem 1rem;
+  color: #D5D4D8;
+}
+
+.selection-field {
+  display: flex;
+  justify-content: start;
+}
+.range{
+  width: 2.5em;
+  height: 2.5em;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 1em;
+  border: none;
+  border-radius: 3px;
+}
+input:focus{
+  outline: none;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.message{
+  font-family: "Inter";
+  font-style: bold;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+  margin: 1em 0;
+  color: #D5D4D8;
+}
+.generate-btn {
+  background: #10B981;
+  width: 191px;
+  padding: 9px 17px 10px 15px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.header {
+  width: auto;
+  padding: 100px 0px 0px 70px;
+}
+
+.separator {
+  width: 80%;
+  margin: 3rem 5rem;
+  height: 1px;
+  background-color: #2F3E53;
+}
+
+.password-el {
+  width: auto;
+  height: auto;
+  padding: 1rem 2rem 0.5rem 2rem;
+  background-color: #273549;
+  border-radius: 5px;
+  color: #55F991;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  margin: 0 15px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+#passwords {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.box_4 {
+  background: #eee;
+}
+
+.input_wrapper {
+  width: 70px;
+  height: 35px;
+  margin-top: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.input_wrapper input[type=checkbox] {
+  width: 70px;
+  height: 35px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #2F3E53;
+  border-radius: 2px;
+  position: relative;
+  outline: 0;
+  transition: all 0.2s;
+}
+
+.input_wrapper input[type=checkbox]:after {
+  position: absolute;
+  content: "";
+  top: 3px;
+  left: 3px;
+  width: 30px;
+  height: 30px;
+  background: #dfeaec;
+  z-index: 2;
+  border-radius: 2px;
+  transition: all 0.35s;
+}
+
+.input_wrapper svg {
+  position: absolute;
+  top: 50%;
+  transform-origin: 50% 50%;
+  fill: #fff;
+  transition: all 0.35s;
+  z-index: 1;
+}
+
+.input_wrapper .is_checked {
+  width: 18px;
+  left: 18%;
+  transform: translateX(190%) translateY(-30%) scale(0);
+}
+
+.input_wrapper .is_unchecked {
+  width: 15px;
+  right: 10%;
+  transform: translateX(0) translateY(-30%) scale(1);
+}
+
+/* Checked State */
+.input_wrapper input[type=checkbox]:checked {
+  background: #10B981;
+}
+
+.input_wrapper input[type=checkbox]:checked:after {
+  left: calc(100% - 33px);
+}
+
+.input_wrapper input[type=checkbox]:checked + .is_checked {
+  transform: translateX(0) translateY(-30%) scale(1);
+}
+
+.input_wrapper input[type=checkbox]:checked ~ .is_unchecked {
+  transform: translateX(-190%) translateY(-30%) scale(0);
+}
+
